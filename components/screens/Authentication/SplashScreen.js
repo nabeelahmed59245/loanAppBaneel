@@ -20,11 +20,17 @@ const SplashScreen = ({navigation}) => {
             <Animatable.View style={styles.footer} animation='fadeInUpBig'>
                 <Text style={styles.title}>Connect with us!</Text>
                 <Text style={styles.text}>Sign in with your account</Text>
-                <View style={styles.button}>
+                <View style={styles.button1}>
+                    <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
+                        <View style={styles.signIn}>
+                            <Text style={styles.text_signIn}>Sign Up</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.button2}>
                     <TouchableOpacity onPress={() => navigation.navigate('SigninScreen')}>
                         <View style={styles.signIn}>
-                            <Text style={styles.text_signIn}>Get Started </Text>
-                            <FontAwesome5 name="arrow-right" color="#fff" />
+                            <Text style={styles.text_signIn}>Sign In</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -54,10 +60,10 @@ const styles = StyleSheet.create({
     },
     footer: {
         flex: 1,
-        backgroundColor: '#121212',
+        backgroundColor: '#323232',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
-        paddingVertical: 50,
+        paddingVertical: 80,
         paddingHorizontal: 30,
     },
     title: {
@@ -69,13 +75,17 @@ const styles = StyleSheet.create({
         color: '#fff',
         marginTop: 5
     },
-    button: {
-        marginTop: 30,
-        alignItems: 'flex-end'
+    button1: {
+        marginTop: 15,
+        alignItems: 'center'
+    },
+    button2: {
+        marginTop: 10,
+        alignItems: 'center'
     },
     signIn: {
         flexDirection: 'row',
-        width: 150,
+        width: 250,
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',

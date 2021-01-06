@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { StatusBar } from 'expo-status-bar';
+import { Ionicons } from '@expo/vector-icons'; 
 import Constants from 'expo-constants';
 import { ScrollView, View, StyleSheet, TextInput, Image, Text } from 'react-native'
 import { Card } from 'native-base'
@@ -10,39 +11,39 @@ const SigninScreen = ({navigation}) => {
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Ionicons name="chevron-back" size={30} color="#fff"/>
+                    </TouchableOpacity>
+                </View>
+                <ScrollView style={{ flex: 1, margin: 20, padding: 10, }}>
+                    <View style={{ marginTop: 10, marginBottom: 2, alignItems: 'center', justifyContent: 'center' }}>
                     <Image 
                         animation='bounceIn'
                         source={require('../../../assets/Logo/logo.png')}
                         style={styles.logo}
                         resizeMode='stretch'
                     />
-                </View>
-                <ScrollView style={{ flex: 1, margin: 20, padding: 10 }}>,
+                    </View>
                     <View>
-                        <Text style={{ textAlign: 'center', color: '#fff', fontSize: 25, margin: 5 }}>Benvenuti in</Text>
-                        <Text style={{ textAlign: 'center', color: '#fff', fontWeight:'bold', fontSize: 30, margin: 20 }}>Elletro Fatturas</Text>
+                        <Text style={{ textAlign: 'center', color: '#fff', fontSize: 25, marginTop: 2 }}>Hello</Text>
+                        <Text style={{ textAlign: 'center', color: '#fff', fontWeight:'bold', fontSize: 30, margin: 5 }}>Test App</Text>
                         <Card style={{ backgroundColor: '#fff', margin: 20, padding: 20, borderRadius: 20 }}>
                             <TextInput
                               style={{ height: 40, borderBottomColor: '#000', borderBottomWidth: 0.7, marginTop: 20, marginBottom: 20, fontWeight: 'bold' }}
-                              placeholder='Indrizzo E-mail'
+                              placeholder='E-mail'
                             />
                             <TextInput
                               style={{ height: 40, borderBottomColor: '#000', borderBottomWidth: 0.7, fontWeight: 'bold' }}
                               placeholder='Password'
                             />
-                            <TouchableOpacity style={{ marginTop: 40, alignItems: 'center' }}>
+                            <TouchableOpacity style={{ marginTop: 40, alignItems: 'center' }} onPress={() => navigation.navigate('HomeScreen')}>
                                 <View style={styles.signIn}>
-                                    <Text style={styles.text_signIn}>ACCEDI</Text>
+                                    <Text style={styles.text_signIn}>ACCEPT</Text>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{ marginTop: 30, alignItems: 'center' }} onPress={() => navigation.navigate('ForgotPassword')}>
+                            <TouchableOpacity style={{ marginTop: 15, alignItems: 'center' }} onPress={() => navigation.navigate('ForgotPassword')}>
                                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                    <Text style={{ color: '#707070' }}>Hai dimenticato la Password?</Text>
-                                </View>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={{ marginTop: 30, alignItems: 'center' }} onPress={() => navigation.navigate('SignupScreen')}>
-                                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                    <Text style={{ color: '#707070' }}>Nuovo utente? Registrati</Text>
+                                    <Text style={{ color: '#707070' }}>Forgot Your Password?</Text>
                                 </View>
                             </TouchableOpacity>
                         </Card>
@@ -59,17 +60,17 @@ export default SigninScreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#000',
+        backgroundColor: '#121212',
         marginTop: Constants.statusBarHeight
     },
     header: {
-        marginTop: 40,
-        justifyContent: 'center',
-        alignItems: 'center'
+        marginTop: 16,
+        marginLeft: 10,
+        alignItems: 'flex-start'
     },
     logo: {
-        width: 100,
-        height: 100
+        width: 70,
+        height: 70
     },
     cardView:{
         flex: 1,
